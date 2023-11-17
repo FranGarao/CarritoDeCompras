@@ -1,80 +1,83 @@
-let carrito = [];
+document.addEventListener("DOMContentLoaded", function () {
+  let carrito = [];
+  let precioFinal = 0;
+  const numeroCarrito = document.getElementById("numeroCarrito");
+  const botonCarrito = document.getElementById("carrito");
+  const mostrarCarrito = document.getElementById("verCarrito");
+  let talles = [
+    ["S", "M", "L", "XL", "XXL"],
+    [39, 40, 41, 42, 43, 44],
+  ];
+  let productos = [
+    {
+      marca: "Nike",
+      tipo: "Zapatillas",
+      precio: 65000,
+      talle: talles[1],
+      importado: true,
+      stock: 3,
+    },
+    {
+      marca: "Adidas",
+      tipo: "Buzo",
+      precio: 40000,
+      talle: talles[0],
+      importado: false,
+      stock: 2,
+    },
+    {
+      marca: "Jordan",
+      tipo: "Remera",
+      precio: 35000,
+      talle: talles[0],
+      importado: true,
+      stock: 2,
+    },
+  ];
 
-// Función para agregar un producto al carrito
-function agregarAlCarrito(producto) {
-  if (producto.stock > 0) {
-    producto.stock--;
-    carrito.push({ ...producto }); // Copia independiente del producto
-    console.log(carrito);
-    console.log(producto.stock);
-  } else {
-    console.log("No queda stock de", producto.name);
-  }
-}
+  console.log(productos);
 
-// Función para mostrar la información de los productos
-function mostrarInformacionProductos() {
-  const productos = [airMax, airMax2, nikeBuzo];
-  let info = "";
-  productos.forEach((producto) => {
-    info += producto.infoProducto() + "<br><br>";
+  productos.map((el) =>
+    document.getElementById(`${el.marca}`).addEventListener("click", () => {
+      if (el.stock == 0) {
+        console.log(`No queda mas stock de ${el.tipo} ${el.marca}`);
+        document.getElementById(`${el.marca}`).disabled = true;
+      } else {
+        carrito.push(el);
+        el.stock--;
+        numeroCarrito.innerText = carrito.length;
+        console.log(carrito);
+      }
+    })
+  );
+
+  botonCarrito.addEventListener("click", () => {
+    for (prod of carrito) {
+      let verCarrito = document.createElement("div");
+      mostrarCarrito.appendChild(verCarrito);
+      const tallasDisponibles = prod.talle.join(", ");
+      precioFinal += prod.precio;
+      verCarrito.innerHTML = `<h2>${prod.tipo} ${prod.marca} $${prod.precio} Talles disponibles: ${tallasDisponibles}</h2></br></br></br>${precioFinal}
+   `;
+
+      botonCarrito.disabled = true;
+    }
   });
-  document.getElementById("productos").innerHTML = info;
-}
-
-// Asociar eventos de clic a los elementos HTML
-document.getElementById("airmax").addEventListener("click", () => {
-  agregarAlCarrito(airMax);
+  console.log(carrito);
 });
-// Asociar eventos a otros elementos...
 
-class Productos {
-  constructor(name, tipo, precio, talle, importado, marca, stock) {
-    this.name = name;
-    this.tipo = tipo;
-    this.precio = precio;
-    this.talle = talle;
-    this.importado = importado;
-    this.marca = marca;
-    this.stock = stock;
-  }
-  infoProducto() {
-    return `Nombre: ${this.name}<br>
-    Tipo: ${this.tipo}<br>
-    Precio: ${this.precio}<br>
-    Talle: ${this.talle}<br>
-    Es importado? ${this.importado}<br>
-    Marca: ${this.marca}<br>`;
-  }
-}
-
-const airMax = new Productos(
-  "Airmax",
-  "Zapatillas",
-  50000,
-  "42",
-  false,
-  "Nike",
-  2
-);
-const nikeBuzo = new Productos(
-  "Buzo Nike",
-  "Buzo",
-  56000,
-  "41",
-  false,
-  "Nike",
-  17
-);
-const airMax2 = new Productos(
-  "Airmax2",
-  "Zapatillas",
-  890000,
-  "41",
-  true,
-  "Nike",
-  10
-);
-
-mostrarInformacionProductos();
-console.log(carrito);
+//   verCarrito.innerHTML = `<h2>${prod.tipo} ${prod.marca} $${prod.precio} Talles disponibles: ${tallasDisponibles}</h2>`;
+//   botonCarrito.disabled = true;
+// }
+// mostrarCarrito.addEventListener("click", () => {
+//   for (const prod of carrito) {
+//     let verCarrito = document.createElement("div");
+//     const carritoElement = document.getElementById("carrito");
+//     if (carritoElement) {
+//       carritoElement.appendChild(verCarrito);
+//       verCarrito.innerHTML = `<h2>${prod.marca}</h2>`;
+//     } else {
+//       console.error("No se encontró el elemento con ID 'carrito'");
+//     }
+//   }
+// })

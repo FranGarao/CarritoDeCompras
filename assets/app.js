@@ -1,5 +1,6 @@
 //Defino el carrito de compras para que lo llene el usuario.
 let carrito = [];
+
 const carritoCompras = document.getElementById("carrito");
 const verCarrito = document.getElementById("mostrarCarrito");
 //Esta funcion nos permite ver los productos que agregamos al carrito

@@ -12,6 +12,8 @@ header {
   justify-content: space-between;
   padding: 2rem;
   background-color: #ececec;
+}#carrito{
+  margin: 40px 0;
 }
 header #logo {
   width: 6rem;
@@ -19,12 +21,12 @@ header #logo {
 header .nav #cerrar {
   display: none;
 }
-header .nav #nav-list {
+header .nav .nav-list {
   display: flex;
   list-style-type: none;
   gap: 1rem;
 }
-header .nav #nav-list a {
+header .nav .nav-list a {
   text-decoration: none;
   color: #1c1c1c;
 }
@@ -40,8 +42,9 @@ header .nav #nav-list a {
     position: absolute;
     top: 0;
     right: 0;
+    display: none;
   }
-  #nav-list {
+  .visible {
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -49,6 +52,6 @@ header .nav #nav-list a {
     padding: 20px;
     background-color: #ececec;
   }
-}
+};
 
 /*# sourceMappingURL=style.css.map */
