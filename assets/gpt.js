@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   let carrito = [];
-  let precioFinal = 0;
-  const numeroCarrito = document.getElementById("numeroCarrito");
+
+  const numeroCarrito = document.querySelector(".numeroCarrito");
   const botonCarrito = document.getElementById("carrito");
-  const mostrarCarrito = document.getElementById("verCarrito");
+  const verCarrito = document.getElementById("verCarrito");
+  const verPrecioFinal = document.getElementById("verPrecioFinal");
   let talles = [
     ["S", "M", "L", "XL", "XXL"],
     [39, 40, 41, 42, 43, 44],
@@ -37,35 +38,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log(productos);
 
-  productos.map((el) =>
-    document.getElementById(`${el.marca}`).addEventListener("click", () => {
-      if (el.stock == 0) {
-        console.log(`No queda mas stock de ${el.tipo} ${el.marca}`);
-        document.getElementById(`${el.marca}`).disabled = true;
-      } else {
-        carrito.push(el);
+  productos.forEach((el) => {
+    const agregarProducto = document.getElementById(`${el.marca}`);
+    agregarProducto.addEventListener("click", () => {
+      if (el.stock > 0) {
+        const productoEnCarrito = carrito.find(
+          (prod) => prod.marca === el.marca
+        );
+
+        if (productoEnCarrito) {
+          productoEnCarrito.cantidad++;
+        } else {
+          carrito.push({ ...el, cantidad: 1 });
+        }
+
         el.stock--;
-        numeroCarrito.innerText = carrito.length;
+        numeroCarrito.innerText++;
         console.log(carrito);
+      } else {
+        alert(`No hay mas stock de ${el.marca}`);
+        agregarProducto.disabled = true;
       }
-    })
-  );
+    });
+  });
 
   botonCarrito.addEventListener("click", () => {
-    for (prod of carrito) {
-      let verCarrito = document.createElement("div");
-      mostrarCarrito.appendChild(verCarrito);
+    // alert("El precio final incluye IVA.");
+    verCarrito.innerHTML = "";
+    let mostrarPrecioFinal = document.createElement("div");
+    verPrecioFinal.appendChild(mostrarPrecioFinal);
+    let precioFinal = 0;
+    for (prodClave in carrito) {
+      const prod = carrito[prodClave];
+      let mostrarCarrito = document.createElement("div");
+      verCarrito.appendChild(mostrarCarrito);
       const tallasDisponibles = prod.talle.join(", ");
-      precioFinal += prod.precio;
-      verCarrito.innerHTML = `<h2>${prod.tipo} ${prod.marca} $${prod.precio} Talles disponibles: ${tallasDisponibles}</h2></br></br></br>${precioFinal}
-   `;
 
+      mostrarCarrito.innerHTML = `</br><h3>${prod.tipo} ${prod.marca}</h3> <b>Precio: </b>$${prod.precio}</br><b>Talles disponibles: </b> ${tallasDisponibles} </br><b>Cantidad: </b>: ${prod.cantidad}</br>
+   `;
+      precioFinal += prod.precio * prod.cantidad * 1.21;
       botonCarrito.disabled = true;
     }
+
+    mostrarPrecioFinal.innerHTML = `<h3>El precio final es de: ${precioFinal}</h3>`;
   });
   console.log(carrito);
 });
-
 //   verCarrito.innerHTML = `<h2>${prod.tipo} ${prod.marca} $${prod.precio} Talles disponibles: ${tallasDisponibles}</h2>`;
 //   botonCarrito.disabled = true;
 // }

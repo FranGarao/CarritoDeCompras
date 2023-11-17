@@ -2,9 +2,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font: 1em sans-serif;
+    font: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+body{
+    min-height: 100vh;
+    color: wheat;
+}
 header{    width:100vw;
         display: flex;
         align-items: center;
@@ -40,8 +44,80 @@ header{    width:100vw;
                 }
             }
             }
-           
+            main {
+                height: 100vh;
+                background-image: linear-gradient( to bottom, rgb(225, 222, 222), black);
+                display: flex;
+                flex-direction: column;
+                height: 100%;  width: 100vw;
+                #productos{
+                    display: flex;
+            
+                .producto{
+                    width: 18rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid black;
+                    border-radius: 8px;
+                    padding: 20px 15px;
+                    background-image: linear-gradient(to top, rgb(255, 255, 255),rgba(0, 0, 0, 0.639));
+                    margin: 10px 20px;
+                    img{
+                        width: 200px;
+                        height: 200px;
+                    }
+                    h2 {
 
+                        font-size: 2em;
+                    }
+                    button:hover{
+                        width: 9rem;
+                        padding: 15px;
+                        font-size: 1.2em;
+                       
+                        border: 3px solid #1c1c1c;
+                    }  button:active{
+                        width: 9rem;
+                        padding: 15px;
+                        font-size: 1.2em;
+                        transition: all 0.5s;
+                        border: 3px solid #1c1c1c;
+                        background-color: white;
+                        color: #f20000e6;
+                      
+                    }
+                    button {
+                        width: 8rem;
+                        background-color: #f20000e6;
+                        padding: 10px;
+                        color: white;
+                        border: 1px solid #1c1c1c;
+                        border-radius: 8px;
+                        font-weight: 700;
+                        font-size: 1em;
+                        transition: all 0.4s;
+                    }}
+                }
+            }
+           #carrito {
+            border: none;
+            background-color: rgba(0, 0, 255, 0);
+            img{
+                width: 5rem;
+            }
+           }
+.numeroCarrito{
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+    padding: 5px ;
+    width: 2rem;font-size: 15px;
+}.efectoNumeroCarrito{
+  transform: rotate(360deg);
+    transition: all 1s;
+}
 
 @media screen and (max-width: 500px) {
      .nav{

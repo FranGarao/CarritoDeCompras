@@ -17,20 +17,37 @@
             <ul class="nav-list">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Quienes Somos</a></li>
-                <li><a href="#">Servicios</a></li>
                 <li><a href="#">Preguntas frecuentes</a></li>
                 <li><a href="#">Soporte</a></li>
+                <div>
+                    <button id="carrito"><img src="multimedia/carrito.png" alt="">
+                        <p class="numeroCarrito">0</p>
+                    </button>
+                </div>
             </ul>
+
         </nav>
     </header>
 
     <main>
-        <button id="Adidas">Adidas</button> <button id="Jordan">Jordan</button><button id="Nike">Nike</button>
+        <section id="productos">
+            <div class="producto">
+                <h2>Airmax</h2> <img src="multimedia/airmax.png" alt=""><button id="Nike">Agregar</button>
+            </div>
+            <div class="producto">
+                <h2>Adidas</h2> <img src="multimedia/buzo.png" alt=""><button id="Adidas">Agregar</button>
+            </div>
+            <div class="producto">
+                <h2>Jordan</h2> <img src="multimedia/jordan.png" alt=""><button id="Jordan">Agregar</button>
+            </div>
+        </section>
+        <section id="verCarrito">
+
+
+        </section>
+        <div id="verPrecioFinal"></div>
     </main>
-    <div id="verCarrito">
-        <button id="carrito">Carrito <p id="numeroCarrito">0</p>
-        </button>
-    </div>
+
     <!-- <div id="productos"></div>
     <button id="airmax">AIRMAX</button> <button id="gorra">GORRA JORDAN</button> <button id="nikeBuzo">BUZO
         NIKE</button>
