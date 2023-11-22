@@ -5,10 +5,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const verCarrito = document.getElementById("verCarrito");
   const verPrecioFinal = document.getElementById("verPrecioFinal");
   const filtros = document.getElementById("filtros");
+  const productosHTML = document.getElementById("productos");
   const precioAscendente = document.getElementById("precioAscendente");
   const precioDescendente = document.getElementById("precioDescendente");
   const precioPersonalizado = document.getElementById("precioPersonalizado");
   const mostrarFiltros = document.querySelectorAll(".listaFiltros");
+  const search = document.getElementById("search");
+  const initSearch = document.getElementById("init-search");
+  // initSearch.addEventListener("click", () => {
+  //   const searchUser = search.value.toLowerCase();
+  //   if (searchUser == "nike") {
+  //     productosHTML.innerText = "REMERA NIKE";
+  //   } else {
+  //     alert("no es Nike");
+  //   }
+  // });
   let activarFiltros = false;
   let talles = [
     ["S", "M", "L", "XL", "XXL"],
