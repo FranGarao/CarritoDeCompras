@@ -104,7 +104,7 @@ main .filtros .listaFiltros {
   padding: 5px;
 }
 main .filtros .listaFiltros h3 {
-  margin: 4px 0;
+  margin: 10px 0;
 }
 main .filtros .desaparecerFiltros {
   display: none;

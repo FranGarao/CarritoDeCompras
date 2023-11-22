@@ -69,33 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
       importado: true,
       stock: 10,
     },
-    // {
-    //   nombre: "producto-a",
-    //   marca: "Jordan",
-    //   tipo: "Zapatillas",
-    //   precio: 85000,
-    //   talle: talles[1],
-    //   importado: true,
-    //   stock: 10,
-    // },
-    // {
-    //   nombre: "producto-a",
-    //   marca: "Nike",
-    //   tipo: "Remera",
-    //   precio: 25000,
-    //   talle: talles[0],
-    //   importado: true,
-    //   stock: 2,
-    // },
-    // {
-    //   nombre: "producto-a",
-    //   marca: "Nike",
-    //   tipo: "Buzo",
-    //   precio: 35000,
-    //   talle: talles[0],
-    //   importado: true,
-    //   stock: 2,
-    // },
   ];
 
   console.log(productos);
@@ -132,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (carrito.length == 0) {
       alert("No ingresaste nada a tu carrito.");
     } else {
-      // alert("El precio final incluye IVA.");
+      alert("El precio final incluye IVA.");
       verCarrito.innerHTML = "";
       let mostrarPrecioFinal = document.createElement("div");
       verPrecioFinal.appendChild(mostrarPrecioFinal);
@@ -157,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   filtros.addEventListener("click", () => {
     mostrarFiltros.forEach((el) => {
       if (activarFiltros == true) {
-        // alert("El resultado de los filtros se muestra en consola.");
+        alert("El resultado de los filtros se muestra en consola.");
         el.classList.remove("desaparecerFiltros");
       } else {
         el.classList.add("desaparecerFiltros");
@@ -210,14 +183,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// precioPersonalizado.addEventListener("click", () => {
-//   prompt(
-//     "Ingresa el precio maximo, y te mostramos los productos por debajo de dicho precio."
-//   );
-//   const precioUsuario = parseInt(prompt("Ingrese el precio minimo"));
-//   const productosFiltrados = productos.filter((el) => {
-//     return el.precio > precioUsuario;
-//   });
-//   console.log(productosFiltrados);
-// });
