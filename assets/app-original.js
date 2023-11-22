@@ -103,9 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   botonCarrito.addEventListener("click", () => {
     if (carrito.length == 0) {
-      alert("No ingresaste nada a tu carrito.");
+      alert("Aun no agregaste productos a tu carrito.");
     } else {
-      alert("El precio final incluye IVA.");
+      alert(
+        "El precio final incluye IVA.\nTu carrito esta al final de la pagina."
+      );
       verCarrito.innerHTML = "";
       let mostrarPrecioFinal = document.createElement("div");
       verPrecioFinal.appendChild(mostrarPrecioFinal);
