@@ -12,21 +12,23 @@ body {
 }
 
 header {
+  height: 20vh;
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  background-image: linear-gradient(to right, black, #4f5452);
-  border-bottom: 2px solid #00ff94;
-}
-header #abrir {
-  display: none;
+  justify-content: end;
+  padding: 1rem;
+  background-image: url(../multimedia/jdi1.jpeg);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  border-bottom: 2px solid rgba(40, 234, 143, 0.5254901961);
 }
 header #logo {
   width: 6rem;
 }
-header .nav #cerrar {
+header .nav #abrir, header .nav #cerrar {
   display: none;
 }
 header .nav .nav-list {
@@ -54,32 +56,63 @@ header .nav .nav-list .efectoNumeroCarrito {
   transform: scale(1.4, 1.4);
   font-size: 18px;
 }
-@media screen and (max-width: 500px) {
-  header .nav #cerrar {
-    display: inline;
-  }
-}
 
 main {
   height: 100vh;
-  background-image: linear-gradient(to top, #1c1c1c, white);
+  background-color: black;
+  background-image: url(../multimedia/fondo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100vw;
 }
-main h2 {
-  color: black;
-  padding: 5px;
-  background-color: #00ff94;
-  display: inline-block;
-  width: 15rem;
-  text-align: center;
+main .filtros {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(40, 234, 143, 0.5254901961);
+  color: rgba(255, 255, 255, 0.918);
+  padding: 8px;
+  width: 20rem;
   border-radius: 10px;
-  border: 2px solid #1c1c1c;
+  align-items: start;
+  justify-content: space-between;
+}
+main .filtros .div-filtros {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 10px;
+}
+main .filtros h2 {
+  display: inline-block;
+  text-align: start;
+}
+main .filtros #filtros {
+  position: relative;
+  top: 10px;
+  height: 2rem;
+  width: 2rem;
+  background-color: rgba(245, 222, 179, 0);
+}
+main .filtros .listaFiltros {
+  padding: 5px;
+}
+main .filtros .listaFiltros h3 {
+  margin: 4px 0;
+}
+main .filtros .desaparecerFiltros {
+  display: none;
 }
 main #productos {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 main #productos .producto {
@@ -91,7 +124,7 @@ main #productos .producto {
   justify-content: space-between;
   border-radius: 8px;
   padding: 35px;
-  background-image: linear-gradient(to right, rgba(233, 230, 230, 0.185), rgba(0, 0, 0, 0.377));
+  background-color: rgba(77, 70, 70, 0.321);
   margin: 10px 20px;
 }
 main #productos .producto img {
@@ -106,28 +139,20 @@ main #productos .producto img:hover {
 main #productos .producto h2 {
   font-size: 2em;
 }
-main #productos .producto button:hover {
-  height: 3.2rem;
-  width: 8.5rem;
-  font-size: 1.2em;
-  border: 2px solid #1c1c1c;
-}
 main #productos .producto button:active {
   width: 9rem;
   padding: 15px;
   font-size: 1.2em;
   transition: all 0.5s;
-  border: 3px solid #1c1c1c;
   background-color: white;
   color: rgba(0, 0, 0, 0.9019607843);
 }
 main #productos .producto button {
   height: 3rem;
   width: 8rem;
-  background-color: #00ff94;
+  background-color: rgba(40, 234, 143, 0.5254901961);
   padding: 10px;
-  color: black;
-  border: 1px solid #1c1c1c;
+  color: rgb(255, 255, 255);
   border-radius: 8px;
   font-weight: 700;
   font-size: 1.2em;
@@ -135,7 +160,7 @@ main #productos .producto button {
 }
 
 #carrito {
-  width: 5rem;
+  width: 3rem;
   background-color: rgba(0, 0, 255, 0);
 }
 
@@ -143,12 +168,17 @@ button {
   border: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .nav {
     height: 60%;
     position: absolute;
     top: 0;
     right: 0;
+  }
+  #abrir {
+    display: inline-block;
+  }
+  ul li {
     display: none;
   }
   .visible {
