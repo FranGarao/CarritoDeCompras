@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       nombre: "producto-f",
-      marca: "Jordan",
+      marca: "Nike-Jordan",
       tipo: "Zapatillas",
       precio: 110000,
       talle: talles[1],
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     agregarProducto.addEventListener("click", () => {
       if (el.stock > 0) {
         const productoEnCarrito = carrito.find(
-          (prod) => prod.marca === el.marca
+          (prod) => prod.nombre === el.nombre
         );
 
         if (productoEnCarrito) {
